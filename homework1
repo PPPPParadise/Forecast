@@ -23,10 +23,10 @@
 > for(i in 1:6){Exponential_Smoother_7[i]<-centered_return[i]}
 > for(i in 1:51){Autoregressive[i+1]=Autoregressive[i]*0.5266}
 > data<-cbind.data.frame(weekly_return,centered_return,squared_return,centered_squared,Moving_Average_2,Moving_Average_3,Moving_Average_5,Moving_Average_7,Exponential_Smoother_2,Exponential_Smoother_3,Exponential_Smoother_5,Exponential_Smoother_7,Autoregressive)
-> MSE_Moving_Average_2[1:37]=sum((Moving_Average_2[1:37]-centered_return[1:37])^2)/37
-> MSE_Moving_Average_3[1:37]=sum((Moving_Average_3[1:37]-centered_return[1:37])^2)/37
-> MSE_Moving_Average_5[1:37]=sum((Moving_Average_5[1:37]-centered_return[1:37])^2)/37
-> MSE_Moving_Average_7[1:37]=sum((Moving_Average_7[1:37]-centered_return[1:37])^2)/37
+> MSE_Moving_Average_2=sum((Moving_Average_2[1:37]-centered_return[1:37])^2)/37
+> MSE_Moving_Average_3=sum((Moving_Average_3[1:37]-centered_return[1:37])^2)/37
+> MSE_Moving_Average_5=sum((Moving_Average_5[1:37]-centered_return[1:37])^2)/37
+> MSE_Moving_Average_7=sum((Moving_Average_7[1:37]-centered_return[1:37])^2)/37
 > MSE_Autoregressive[1:37]=sum((Autoregressive[1:37]-centered_return[1:37])^2)/37
 > for(i in 37:51){Moving_Average_2[i+1]=(Moving_Average_2[i]+Moving_Average_2[i-1]+Moving_Average_2[i-2])/3}
 > for(i in 37:51){Moving_Average_2[i+1]=(Moving_Average_2[i]+Moving_Average_2[i-1])/2}
