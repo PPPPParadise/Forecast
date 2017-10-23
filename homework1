@@ -3,17 +3,17 @@
 > View(data)
 > weekly_return=data$`weekly return`
 > date=data$Time
-> centered_return[1:37]=weekly_return[1:37]-sum(weekly_return[1:37])/37
-> squared_return[1:37]=weekly_return[1:37]^2
-> centered_squared[1:37]=squared_return[1:37]-sum(squared_return[1:37])/37
-> Moving_Average_2[1:37]=SMA(centered_return[1:37],n=2)
-> Moving_Average_3[1:37]=SMA(centered_return[1:37],n=3)
-> Moving_Average_5[1:37]=SMA(centered_return[1:37],n=5)
-> Moving_Average_7[1:37]=SMA(centered_return[1:37],n=7)
-> Exponential_Smoother_2[1:37]=EMA(centered_return[1:37],n=2)
-> Exponential_Smoother_3[1:37]=EMA(centered_return[1:37],n=3)
-> Exponential_Smoother_5[1:37]=EMA(centered_return[1:37],n=5)
-> Exponential_Smoother_7[1:37]=EMA(centered_return[1:37],n=7)
+> centered_return=weekly_return-sum(weekly_return)/37
+> squared_return=weekly_return^2
+> centered_squared=squared_return-sum(squared_return)/37
+> Moving_Average_2=SMA(centered_return,n=2)
+> Moving_Average_3=SMA(centered_return,n=3)
+> Moving_Average_5=SMA(centered_return,n=5)
+> Moving_Average_7=SMA(centered_return,n=7)
+> Exponential_Smoother_2=EMA(centered_return,n=2)
+> Exponential_Smoother_3=EMA(centered_return,n=3)
+> Exponential_Smoother_5=EMA(centered_return,n=5)
+> Exponential_Smoother_7=EMA(centered_return,n=7)
 > arima(centered_return,order=c(1,0,0),include.mean =F,method=c("CSS") )
 > for(i in 1:2){Moving_Average_3[i]<-centered_return[i]}
 > for(i in 1:4){Moving_Average_5[i]<-centered_return[i]}
